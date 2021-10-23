@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="f5ff1c60-350e-47ab-9d7a-2d31ef2d0ab6" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="day1-trainingFlow" doc:id="23aae5c9-0dc5-4e4a-ac2c-56316f4ae475" >
+		<http:listener doc:name="HTTP" doc:id="d8506481-df33-4137-acf5-fda76d6c3461" config-ref="HTTP_Listener_config" path="/path" allowedMethods="GET"/>
+		<set-payload value='#["hello world"]' doc:name="output" doc:id="762bd950-3bc6-414a-904e-054841db4fa4" />
+	</flow>
+</mule>
